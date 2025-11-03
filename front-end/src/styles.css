@@ -1,0 +1,59 @@
+/* You can add global styles to this file, and also import other style files */
+/* src/styles.css */
+
+/* Variables Tisseo */
+:root {
+    --tisseo-blue-primary: #0060A8;
+    --tisseo-blue-dark: #003e7e;
+    --tisseo-accent-yellow: #ff9800;
+    --tisseo-white: #ffffff;
+    --tisseo-light-gray: #f4f4f4;
+    --tisseo-hover-shadow: 0 4px 12px rgba(0, 96, 168, 0.4); 
+}
+
+/* Base */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--tisseo-light-gray);
+    color: #333;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--tisseo-blue-primary);
+}
+
+.card {
+    background: var(--tisseo-white);
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Effet de survol Tisseo (ombre bleue) */
+.hover-effect, .btn-primary:hover, .clickable-card:hover {
+    cursor: pointer;
+    box-shadow: var(--tisseo-hover-shadow);
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: var(--tisseo-blue-primary);
+    color: var(--tisseo-white);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--tisseo-blue-dark);
+    box-shadow: none; 
+    transform: none;
+}

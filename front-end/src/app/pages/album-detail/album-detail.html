@@ -1,0 +1,34 @@
+<div *ngIf="album" class="detail-container">
+    
+    <div class="album-header">
+        <img [src]="'/assets/fuc.png'" alt="Pochette d'album" class="album-cover-large">
+        <div class="info-details">
+            <h1>{{ album.title }}</h1>
+            
+            <h2 [routerLink]="['/artists', album.artist_id]" class="artist-link hover-effect">
+                <span class="icon">👤</span> {{ album.artist_name }}
+            </h2>
+
+            <p>Date de sortie : <strong>{{ album.release_date | date }}</strong></p>
+            <p>Morceaux : <strong>{{ album.songs.length }}</strong></p>
+            
+            <button class="btn-primary" style="margin-top: 20px;">
+                <span class="icon">▶️</span> Démarrer la lecture
+            </button>
+        </div>
+    </div>
+
+    <div class="card songs-list-card">
+        <h3>Liste des Morceaux ({{ album.songs.length }})</h3>
+        <ul class="song-list">
+            <li *ngFor="let song of album.songs; let i = index" class="song-item">
+                <span class="track-number">{{ i + 1 }}.</span>
+                <span class="song-title">{{ song.title }}</span>
+                <div class="song-genres">
+                    <span *ngFor="let genre of song.genres" class="genre-tag">{{ genre.title }}</span>
+                </div>
+                <span class="song-duration">{{ formatDuration(song.duration) }}</span>
+            </li>
+        </ul>
+    </div>
+</div>

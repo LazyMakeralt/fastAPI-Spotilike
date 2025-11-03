@@ -1,0 +1,29 @@
+<div *ngIf="isLoading" class="flex justify-center items-center h-48">
+  <div class="loader"></div>
+  <p class="text-xl text-gray-400 ml-4">Chargement des détails de l'artiste...</p>
+</div>
+
+<div *ngIf="artist && !isLoading" class="detail-container">
+  <div class="artist-header card">
+    <img [src]="artist.avatar_url || '/assets/placeholder-avatar.png'" alt="Avatar de l'artiste" class="artist-avatar-large">
+    <div class="info-details">
+      <h1>{{ artist.name }}</h1>
+      <p class="biography">{{ artist.biography }}</p>
+    </div>
+  </div>
+
+  <div class="card songs-list-card">
+    <h3>Morceaux de l'artiste ({{ songs.length }})</h3>
+    <ul class="song-list">
+      <li *ngFor="let song of songs; let i = index" class="song-item" [routerLink]="['/albums', song.album_id]">
+        <span class="track-number">{{ i + 1 }}.</span>
+        <span class="song-title">{{ song.title }}</span>
+        <div class="song-genres">
+          <span *ngFor="let genre of song.genres" class="genre-tag primary-tag">{{ genre.title }}</span>
+        </div>
+        <span class="song-duration">{{ formatDuration(song.duration) }}</span>
+      </li>
+    </ul>
+    <p *ngIf="songs.length === 0" class="no-data">Aucun morceau trouvé pour cet artiste.</p>
+  </div>
+</div>

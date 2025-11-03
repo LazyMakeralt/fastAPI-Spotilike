@@ -1,0 +1,191 @@
+/* src/app/pages/album-detail/album-detail.component.css */
+
+/*
+ * ========================================
+ * === 0. MISE EN PAGE DU COMPOSANT (HOST) ===
+ * ========================================
+ */
+:host {
+    /* Assure que le composant prend toute la largeur disponible et hérite du fond noir */
+    display: block;
+    width: 100%; 
+    /* AJOUT IMPORTANT: Force le fond noir pour le composant lui-même, couvrant toute la zone. */
+    background-color: #121212 !important;
+}
+
+/*
+ * ========================================
+ * === 1. CONTENEUR PRINCIPAL & EN-TÊTE ===
+ * ========================================
+ */
+.detail-container {
+    /* Centrage et contrainte de largeur */
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 40px; 
+}
+
+.album-header {
+    display: flex;
+    gap: 40px;
+    align-items: flex-end; 
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    /* Séparateur plus lumineux pour l'effet néon */
+    border-bottom: 2px solid #00bcd4; 
+    box-shadow: 0 4px 5px -5px rgba(0, 188, 212, 0.5); /* Ombre de ligne subtile */
+}
+
+/*
+ * ========================================
+ * === 2. POCHETTE D'ALBUM (NEON INTENSE) ===
+ * ========================================
+ */
+.album-cover-large {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s;
+    
+    /* Ombre Néon INTENSE */
+    box-shadow: 
+        0 0 10px #00bcd4,  /* Lueur interne (faible) */
+        0 0 25px rgba(0, 188, 212, 0.7), /* Lueur moyenne */
+        0 0 40px rgba(0, 188, 212, 0.4); /* Lueur diffuse */
+    border: 2px solid #00bcd4; /* Bordure néon */
+}
+
+.album-cover-large:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 0 15px #E0E0E0, /* Un peu de blanc au survol */
+        0 0 35px #00bcd4,
+        0 0 60px rgba(0, 188, 212, 0.6);
+}
+
+.info-details h1 {
+    font-size: 3.5em;
+    color: #fff; /* Blanc pur pour l'éclat */
+    /* Halo de texte néon plus fort pour le titre */
+    text-shadow: 0 0 10px rgba(0, 188, 212, 0.8), 0 0 20px rgba(0, 188, 212, 0.3); 
+    margin-bottom: 10px;
+}
+
+.info-details p {
+    color: #AAAAAA; /* Texte secondaire estompe */
+    font-size: 1.1em;
+}
+
+/*
+ * ========================================
+ * === 3. LIEN ARTISTE (INTERACTION NEON) ===
+ * ========================================
+ */
+.artist-link {
+    cursor: pointer;
+    color: #00bcd4; /* Couleur néon */ 
+    font-size: 1.5em;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    padding: 5px 0;
+    text-decoration: none;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.artist-link:hover {
+    color: #fff; /* Devient blanc brillant au survol */
+    text-shadow: 0 0 10px #00bcd4; /* Halo néon au survol */
+}
+
+.icon {
+    margin-right: 8px;
+    /* Force l'icône à être néon */
+    color: #00bcd4; 
+}
+
+
+/*
+ * ========================================
+ * === 4. LISTE DES MORCEAUX (THEME SOMBRE) ===
+ * ========================================
+ */
+.songs-list-card {
+    /* Carte presque noire */
+    background-color: #1e1e1e; 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    border: 1px solid rgba(0, 188, 212, 0.1); /* Bordure très subtile */
+    padding: 30px; 
+    border-radius: 12px;
+}
+
+h3 {
+    color: #E0E0E0;
+    margin-bottom: 20px;
+    /* Soulignement néon */
+    border-bottom: 1px solid #00bcd4; 
+    box-shadow: 0 3px 3px -3px rgba(0, 188, 212, 0.4); 
+    padding-bottom: 10px;
+}
+
+.song-list {
+    list-style: none;
+    padding: 0;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    /* Lignes de séparation néon très subtiles */
+    border-bottom: 1px solid rgba(0, 188, 212, 0.05); 
+    transition: background-color 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    color: #E0E0E0;
+}
+
+.song-item:hover {
+    background-color: rgba(0, 188, 212, 0.1); /* Ligne fortement éclairée au survol */
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.5); /* Petit halo sur la ligne */
+    border-radius: 4px;
+}
+
+.song-item:last-child {
+    border-bottom: none;
+}
+
+.track-number {
+    font-weight: bold;
+    width: 40px; 
+    color: #00bcd4; /* Couleur néon */
+    text-align: center;
+}
+
+.song-title {
+    flex-grow: 1;
+    margin-left: 15px;
+    font-weight: 500;
+}
+
+.song-genres {
+    display: flex;
+    gap: 8px;
+    margin-right: 20px;
+}
+
+.genre-tag {
+    /* Style de tag néon */
+    background-color: rgba(0, 188, 212, 0.2);
+    color: #E0E0E0;
+    padding: 4px 10px;
+    border-radius: 16px;
+    font-size: 0.8em;
+    border: 1px solid #00bcd4;
+    text-shadow: 0 0 3px #00bcd4;
+}
+
+.song-duration {
+    font-weight: bold;
+    color: #a7a7a7; /* Gris secondaire */
+}

@@ -1,0 +1,91 @@
+:host {
+    display: block;
+    margin: 0;
+    padding: 30px;
+    min-height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #0a0a0a, #121212, #0a0a0a);
+    background-size: 400% 400%;
+    animation: backgroundShift 15s ease infinite;
+    color: #e0e0e0;
+}
+@keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.neon-cursor {
+    position: fixed;
+    z-index: 0;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 188, 212, 0.25) 0%, rgba(0, 0, 0, 0) 70%);
+    filter: blur(40px);
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #00bcd4;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+    width: calc(100% - 60px);
+    max-width: 1200px;
+    margin: 0 auto;
+    
+}
+.album-item {
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: rgba(18, 18, 18, 0.6);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: box-shadow 0.5s ease, transform 0.3s ease;
+}
+.album-item:hover {
+    box-shadow: 0 0 25px rgba(0, 188, 212, 0.5);
+    transform: translateY(-5px);
+}
+.album-cover {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.card-content {
+    padding: 15px;
+    text-align: left;
+    background-color: #1e1e1e; 
+}
+.card-content h2 {
+    font-size: 1.2em;
+    margin: 0 0 5px 0;
+    color: #00bcd4;
+}
+.artist-name {
+    color: #a7a7a7;
+    margin: 0;
+}
+.release-date {
+    font-size: 0.8em;
+    color: #a7a7a7;
+    margin-top: 5px;
+}
