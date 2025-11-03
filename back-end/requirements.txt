@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+python-jose[cryptography] # Pour JWT
+python-multipart        
+python-dotenv            
+SQLAlchemy
+PyMySQL                  # Driver MySQL
+
+# --- AJOUT pour le type EmailStr de Pydantic ---
+email-validator
