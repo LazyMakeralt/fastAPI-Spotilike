@@ -1,0 +1,72 @@
+/* src/app/app.component.css */
+/* Couleurs et styles propres, sans espaces non‑standard */
+
+:root {
+  --tisseo-white: #e0e0e0;
+  --tisseo-blue-dark: #121212;
+  --tisseo-accent: #00bcd4;
+  --nav-link-muted: #a7a7a7;
+}
+
+.navbar {
+  background-color: var(--tisseo-blue-dark);
+  color: var(--tisseo-white);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 15px rgba(0, 188, 212, 0.6);
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.navbar-brand .logo-link {
+  color: var(--tisseo-white);
+  font-size: 1.5em;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.navbar-brand .logo-link:hover {
+  color: var(--tisseo-accent);
+}
+
+.logo-icon {
+  margin-right: 10px;
+  font-size: 1.2em;
+  color: var(--tisseo-accent);
+  text-shadow: 0 0 5px var(--tisseo-accent);
+}
+
+.nav-link {
+  color: var(--nav-link-muted);
+  padding: 8px 15px;
+  border-radius: 4px;
+  margin-left: 10px;
+  transition: background-color 0.2s, color 0.2s, text-shadow 0.2s;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: rgba(0, 188, 212, 0.1);
+  color: var(--tisseo-accent);
+  text-shadow: 0 0 8px var(--tisseo-accent);
+}
+
+.active-link {
+  background-color: white;
+  color: var(--tisseo-blue-dark);
+  font-weight: bold;
+  box-shadow: 0 0 10px rgba(0, 188, 212, 0.5);
+}
+
+/* Le conteneur principal laisse la gestion du layout aux composants enfants */
+.main-content {
+    background-color: var(--color-background-dark);
+    padding: 0; 
+    margin: 0;
+}

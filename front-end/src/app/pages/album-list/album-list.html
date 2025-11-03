@@ -1,0 +1,26 @@
+<div class="neon-cursor"></div>
+
+<h1>Albums</h1>
+
+<div *ngIf="isLoading" class="flex justify-center items-center h-48">
+    <p class="text-xl text-gray-400">Chargement des albums et des noms d'artistes...</p>
+</div>
+
+<div *ngIf="!isLoading && albums.length > 0" class="album-grid">
+  <div *ngFor="let album of albums" 
+       [routerLink]="['/albums', album.id]" 
+       class="card clickable-card album-item hover-effect">
+    
+    <img [src]="album.cover_image_url || '/assets/placeholder.png'" alt="Pochette d'album" class="album-cover">
+    
+    <div class="card-content">
+      <h2>{{ album.title }}</h2>
+      <p class="artist-name">{{ album.artist_name || 'Artiste inconnu' }}</p>
+      <p class="release-date">Sortie: {{ album.release_date | date }}</p>
+    </div>
+  </div>
+</div>
+
+<p *ngIf="!isLoading && albums.length === 0" class="no-data">
+    Aucun album trouvé. Vérifiez votre connexion API.
+</p>

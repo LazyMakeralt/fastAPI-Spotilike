@@ -1,0 +1,25 @@
+<h1>Artistes</h1>
+
+<div *ngIf="isLoading" class="flex justify-center items-center h-48">
+    <div class="loader"></div> <!-- Assurez-vous d'avoir stylisé cette classe -->
+    <p class="text-xl text-gray-400 ml-4">Chargement de la liste des artistes...</p>
+</div>
+
+<div *ngIf="!isLoading" class="artist-grid">
+    <div *ngFor="let artist of artists" 
+        [routerLink]="['/artists', artist.id]" 
+        class="card clickable-card artist-item hover-effect">
+        
+        <img [src]="artist.avatar_url || '/assets/placeholder-avatar.png'" 
+             alt="Avatar de l'artiste" 
+             class="artist-avatar">
+        
+        <div class="card-content">
+            <h2>{{ artist.name }}</h2>
+        </div>
+    </div>
+</div>
+
+<p *ngIf="!isLoading && artists.length === 0" class="no-data">
+    Aucun artiste trouvé. Veuillez vérifier votre backend ou ajouter des données d'albums.
+</p>
